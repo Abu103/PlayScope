@@ -22,6 +22,13 @@
 	}
 </script>
 
+
+<svelte:head>
+	<title>PlayScope | Popular Games</title>
+	<meta name="description" content="Browse popular games with ratings, genres, and more." />
+	<meta name="keywords" content="games, video games, popular, ratings" />
+</svelte:head>
+
 <div class="flex place-self-center bg-gray-900 px-10 pt-0 lg:pt-30 w-full">
 	<div class="columns-1 gap-4  py-5 sm:columns-2 lg:columns-3">
 		{#each data.game.results as item (item.id)}

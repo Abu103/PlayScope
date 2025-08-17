@@ -7,10 +7,17 @@
 		goto(`/${gameSlug}`, { replaceState: false });
 	}
 
-	function getImage(url:string) {
+	function getImage(url: string) {
 		return url?.replace('/media/games/', '/media/crop/600/400/games/');
 	}
 </script>
+
+<svelte:head>
+	<title>PlayScope | Popular Games</title>
+	<meta name="description" content="Browse popular games with ratings, genres, and more." />
+	<meta name="keywords" content="games, video games, popular, ratings" />
+</svelte:head>
+
 
 <div class="min-h-screen w-screen bg-gray-900 pt-10 pb-20 lg:pt-35">
 	<div class="grid grid-cols-1 gap-5 px-5 md:grid-cols-3 lg:grid-cols-3">

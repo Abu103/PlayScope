@@ -7,6 +7,13 @@
 
 </script>
 
+
+<svelte:head>
+	<title>PlayScope | Popular Games</title>
+	<meta name="description" content="Browse popular games with ratings, genres, and more." />
+	<meta name="keywords" content="games, video games, popular, ratings" />
+</svelte:head>
+
 {#await game}
 	<Spinner />
 {:then game}
