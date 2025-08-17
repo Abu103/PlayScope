@@ -1,30 +1,31 @@
-<script>
+<script lang="ts">
 	import Spinner from '$lib/components/Spinner.svelte';
 
 	export let data;
 	const { game } = data;
 	console.log(game.platforms);
+
 </script>
 
 {#await game}
 	<Spinner />
 {:then game}
-	<div class="flex min-h-screen min-w-screen flex-col bg-black/80 pt-0 lg:pt-30 pb-10 text-white">
+	<div class="flex min-h-screen min-w-screen flex-col bg-black/80 pt-0 pb-10 text-white lg:pt-30">
 		<div class="px-3">
-			<h1 class="px-5 py-10 text-2xl lg:text-5xl">
+			<h1 class="px-5 py-8 text-2xl lg:text-5xl font-bold">
 				{game.name}
 			</h1>
 			<div class="flex flex-col lg:flex-row">
-				<div class="flex h-full w-full items-center place-self-center px-5 place-content-center">
+				<div class="flex h-full w-full place-content-center items-center place-self-center px-5">
 					<img
 						src={game.background_image}
 						alt={game.name}
-						class="items-centers order-1 w-10/12 rounded-md lg:w-full"
+						class="items-centers order-1 w-full rounded-md"
 						loading="lazy"
 					/>
 				</div>
 				<div
-					class="flex w-9/10 grow flex-wrap place-content-center pl-5 items-center gap-2 pt-10 lg:flex-row lg:pt-0"
+					class="flex w-9/10 grow flex-wrap place-content-center items-center gap-2 pt-10 pl-5 lg:flex-row lg:pt-0"
 				>
 					{#each game.tags as tag, i}
 						{#if i < 10}

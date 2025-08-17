@@ -16,6 +16,10 @@
 	function gotoPage(slug: string) {
 		goto(`/${slug}`, { replaceState: false });
 	}
+
+	function getImage(url:string) {
+		return url?.replace('/media/games/', '/media/crop/600/400/games/');
+	}
 </script>
 
 <div class="flex place-self-center bg-gray-900 px-10 pt-0 lg:pt-30 w-full">
@@ -30,7 +34,7 @@
 					class=" h-fit break-inside-avoid rounded-sm bg-gray-900 p-3"
 				>
 					{#if item.background_image}
-						<img src={item.background_image} alt={item.name} class="rounded-sm" />
+						<img src={getImage(item.background_image)} alt={item.name} class="rounded-sm" />
 					{/if}
 					<p class="pt-3 text-lg font-semibold text-white">{item.name}</p>
 				</a>
