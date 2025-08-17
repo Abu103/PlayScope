@@ -28,6 +28,7 @@
 					class="aspect-auto rounded-t-md object-cover md:aspect-video"
 					width="100%"
 					height="auto"
+					fetchpriority="high"
 				/>
 				<p class="px-3 py-5 text-start wrap-normal text-white">{game.name}</p>
 				<span class="flex items-center gap-1 pl-3"><Star size={15} /> {game.rating}/5</span>
