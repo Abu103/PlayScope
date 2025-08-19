@@ -17,11 +17,10 @@
 		goto(`/${slug}`, { replaceState: false });
 	}
 
-	function getImage(url:string) {
+	function getImage(url: string) {
 		return url?.replace('/media/games/', '/media/crop/600/400/games/');
 	}
 </script>
-
 
 <svelte:head>
 	<title>PlayScope | Popular Games</title>
@@ -29,10 +28,27 @@
 	<meta name="keywords" content="games, video games, popular, ratings" />
 </svelte:head>
 
-<div class="flex place-self-center bg-gray-900 px-10 pt-0 lg:pt-30 w-full">
-	<div class="columns-1 gap-4  py-5 sm:columns-2 lg:columns-3">
+{#if data.game.results.length == 0}
+	<div class="min-h-screen">
+		<div class="flex min-h-screen flex-col items-center justify-center bg-slate-900 text-white">
+			<h1 class="animate-bounce text-9xl font-extrabold tracking-widest text-yellow-400">404</h1>
+
+			<p class="mt-4 animate-pulse text-xl text-slate-300">Page Not Found</p>
+
+			<a
+				href="/"
+				class="animate-fade-in mt-8 rounded bg-yellow-400 px-6 py-2 font-semibold text-slate-900 shadow-lg transition-all duration-300 ease-in-out hover:scale-105 hover:bg-yellow-300"
+			>
+				Go Home
+			</a>
+		</div>
+	</div>
+{/if}
+
+<div class="flex w-full place-self-center bg-gray-900 px-10 pt-0 lg:pt-30">
+	<div class="columns-1 gap-4 py-5 sm:columns-2 lg:columns-3">
 		{#each data.game.results as item (item.id)}
-			<div class=" flex my-5 rounded-sm hover:border-[#FACC15] border-2 hover:rounded-sm">
+			<div class=" my-5 flex rounded-sm border-2 hover:rounded-sm hover:border-[#FACC15]">
 				<a
 					href={`/${item.slug}`}
 					onclick={() => {

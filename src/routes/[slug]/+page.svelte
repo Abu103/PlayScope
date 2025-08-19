@@ -9,7 +9,7 @@
 
 
 <svelte:head>
-	<title>PlayScope | Popular Games</title>
+	<title>PlayScope | {game.name}</title>
 	<meta name="description" content="Browse popular games with ratings, genres, and more." />
 	<meta name="keywords" content="games, video games, popular, ratings" />
 </svelte:head>
@@ -17,7 +17,7 @@
 {#await game}
 	<Spinner />
 {:then game}
-	<div class="flex min-h-screen min-w-screen flex-col bg-black/80 pt-0 pb-10 text-white lg:pt-30">
+	<div class="flex min-h-screen min-w-screen flex-col bg-black/80 pt-15 pb-10 text-white lg:pt-30">
 		<div class="px-3">
 			<h1 class="px-5 py-8 text-2xl lg:text-5xl font-bold">
 				{game.name}
@@ -45,7 +45,7 @@
 					{/each}
 				</div>
 			</div>
-			<p class="mx-5 my-10 border-l-5 border-[#FACC15] bg-[#FACC1533] px-5 py-5 text-white">
+			<p class="mx-5 rounded-sm md:my-10 border-l-5 border-[#FACC15] bg-[#FACC1533] px-5 py-5 text-white">
 				<i>
 					{@html game.description}
 				</i>

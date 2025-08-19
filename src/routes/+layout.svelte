@@ -3,6 +3,8 @@
 	import favicon from '$lib/assets/favicon.svg';
 	import { goto } from '$app/navigation';
 	import Spinner from '$lib/components/Spinner.svelte';
+	import favicon1 from '$lib/assets/favicon1.svg';
+	import { Home } from 'lucide-svelte';
 
 	let { children } = $props();
 	let inputValue: string = $state('');
@@ -22,6 +24,7 @@
 </script>
 
 <svelte:head>
+	<link rel="shortcut icon" href={favicon1} />
 	<link rel="icon" href={favicon} />
 	<title>PlayScope | Popular Games</title>
 	<meta name="description" content="Browse popular games with ratings, genres, and more." />
@@ -32,13 +35,13 @@
 	<Spinner />
 {:then loading}
 	<div
-		class="z-40 overflow-hidden md:block lg:fixed lg:top-0 lg:w-full lg:bg-black/80 lg:px-5 lg:py-7 lg:text-lg lg:text-white lg:backdrop-blur-sm"
+		class="fixed z-40 overflow-hidden bg-black/80 text-white md:block lg:fixed lg:top-0 lg:w-full lg:bg-black/80 lg:px-5 lg:py-3 lg:text-lg lg:text-white lg:backdrop-blur-sm"
 	>
 		<div class="flex items-center justify-between gap-3">
 			<div class="flex items-center gap-10">
 				<a class="logo w-fit max-w-2xs" onclick={gotoHome} href="/">
 					<svg
-						viewBox="0 0 240 60"
+						viewBox="0 0 250 60"
 						fill="none"
 						xmlns="http://www.w3.org/2000/svg"
 						style="width: 100%; height: 100%; display: block;"
@@ -77,13 +80,20 @@
 				</form>
 			</div>
 			<ul class="flex gap-7">
-				<li class="flex place-self-center rounded-sm px-3 py-2 hover:bg-[#FACC15] hover:text-black">
+				<div class="mx-5 place-content-center items-center md:hidden">
+					<a href="/">
+						<Home size="25" />
+					</a>
+				</div>
+				<li
+					class="hidden place-self-center rounded-sm px-3 py-2 hover:bg-[#FACC15] hover:text-black md:flex"
+				>
 					<a href="/" aria-label={'Home'} onclick={gotoHome}>Home</a>
 				</li>
 				<li class="flex place-self-center rounded-sm px-3 py-2 hover:bg-[#FACC15] hover:text-black">
 					Catalog
 				</li>
-				<li class="flex place-self-center rounded-sm px-3 py-2 hover:bg-[#FACC15] hover:text-black">
+				<li class="flex place-self-center rounded-sm px-3 py-2 hover:bg-[#FACC15] hover:text-black text-nowrap">
 					About us
 				</li>
 				<li class="flex place-self-center rounded-sm px-3 py-2 hover:bg-[#FACC15] hover:text-black">

@@ -19,7 +19,7 @@
 </svelte:head>
 
 
-<div class="min-h-screen w-screen bg-gray-900 pt-10 pb-20 lg:pt-35">
+<div class="min-h-screen w-screen bg-gray-900 pt-20 pb-20 lg:pt-35">
 	<div class="grid grid-cols-1 gap-5 px-5 md:grid-cols-3 lg:grid-cols-3">
 		{#each data.results as game}
 			<a
